@@ -16,3 +16,9 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.header__form-history {
+    .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+    }
+}

@@ -1,11 +1,22 @@
-Selected - {{ formConfigs[currentIndex].createdAt | date: 'hh:mm:ss, dd/MM/YY' }}
-
 <div class="header">
-    <h1 class="heading">Drag & Drop Form Builder</h1>
-    <mat-form-field>
-        <mat-label>Form History</mat-label>
-        <select matNativeControl required [value]="formConfigs[currentIndex].createdAt">
-            <option *ngFor="let item of formConfigs" [value]="item.createdAt">{{item.createdAt | date: 'hh:mm:ss, dd/MM/YY'}}</option>
-        </select>
-      </mat-form-field>
+  <h1 class="heading">Drag & Drop Form Builder</h1>
+  <mat-form-field class="header__form-history">
+    <mat-label>Form History</mat-label>
+    <mat-select required [value]="currentIndex">
+      <mat-option *ngFor="let item of formConfigs; let i = index" [value]="currentIndex">
+        <div (click)="onHistoryChange(i)">{{
+          item.createdAt | date : "hh:mm:ss, dd/MM/YY"
+        }}</div></mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-stroked-button
+    color="primary"
+    class="header__action-btn"
+    (click)="openPreview()"
+    [disabled]="!formConfigs[currentIndex].elements.length"
+  >
+    Preview
+  </button>
 </div>

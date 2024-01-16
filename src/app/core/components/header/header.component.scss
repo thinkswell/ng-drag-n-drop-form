@@ -1,10 +1,23 @@
 .header {
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 1.5rem;
     border-bottom: 1px solid #d3d3d3;
     color: #333;
+    display: flex;
+    align-items: center;
 
+    &__form-history {
+        margin-left: auto;
+
+        .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+        }
+    }
     .heading {
         margin: 0;
+    }
+
+    &__action-btn {
+        margin-left: 2rem;
     }
 }

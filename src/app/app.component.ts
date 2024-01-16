@@ -56,10 +56,6 @@ export class AppComponent {
   }
 
   initDndForm() {
-    this.formConfigHistory.formConfigs = [...this.formConfigHistory.formConfigs, {
-      createdAt: Date.now().toString(),
-      elements: [],
-    }]
     this.dndForm = this.formBuilder.group({
       elements: this.formBuilder.array(
         this.formConfig.map((element) => this.formElementsArray.push(this.formBuilder.control([element.value])))
@@ -84,16 +80,35 @@ export class AppComponent {
     this.addNewField(data);
   }
 
-  handleFormSubmit() {
+  updateFormConfigs() {
     this.formElementsArray.controls.forEach((control, i) => {
       this.formConfig[i].value = control.value;
     })
     this.formConfigHistory.count += 1;
     this.formConfigHistory.current += 1;
+  }
+
+  initFormConfigHistory() {
+    this.formConfigHistory.formConfigs = [...this.formConfigHistory.formConfigs, {
+      createdAt: Date.now().toString(),
+      elements: [],
+    }]
+  }
+
+  handleFormSubmit() {
+    this.updateFormConfigs();
+    this.initFormConfigHistory();
+    this.initDndForm();
+  }
+  
+  updateCurrentFormConfig(index: number) {
+    console.log({newIndex: index})
+    this.formConfigHistory.current = index;
     this.initDndForm();
   }
 
   ngOnInit() {
+    this.initFormConfigHistory();
     this.initDndForm();
   }
 }

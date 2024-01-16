@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { LabelInputComponent } from './dialog/label-input/label-input.component';
+import { ConfigPreviewComponent } from './dialog/config-preview/config-preview.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LabelInputComponent } from './dialog/label-input/label-input.component'
     HeaderComponent,
     FooterComponent,
     LabelInputComponent,
+    ConfigPreviewComponent,
   ],
   imports: [
     BrowserModule,
