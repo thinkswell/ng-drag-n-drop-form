@@ -1,39 +1,15 @@
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import {
-  FormArray,
-  FormControl,
-  FormGroup,
   UntypedFormArray,
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
+
 import { LabelInputComponent } from './dialog/label-input/label-input.component';
+import { FORM_CONFIG_HISTORY, FORM_FIELD, FORM_FIELD_TYPES } from './shared/models/app.model';
 
-interface FORM_FIELD {
-  type: string;
-  placeholder: string;
-  label: string;
-}
-
-enum FORM_FIELD_TYPES {
-  EMAIL = 'email',
-  TEXT = 'text',
-  NUMBER = 'number',
-  PASSWORD = 'password',
-}
-
-interface FORM_CONFIG_HISTORY {
-  count: number;
-  current: number;
-  formConfigs: Array<FORM_CONFIG>;
-}
-
-interface FORM_CONFIG {
-  createdAt: string;
-  elements: Array<FORM_FIELD>;
-}
 
 @Component({
   selector: 'app-root',
@@ -65,7 +41,7 @@ export class AppComponent {
       label: '',
     },
   ];
-  dropFormFields: Array<FORM_FIELD> = [];
+  dropFormFields: Array<FORM_FIELD | { value: string }> = [];
   formConfigHistory: FORM_CONFIG_HISTORY = { count: 0, current: 0, formConfigs: [] };
   readonly FORM_FIELD_TYPES = FORM_FIELD_TYPES;
 
@@ -110,8 +86,12 @@ export class AppComponent {
   }
 
   handleFormSubmit() {
+    this.formElementsArray.controls.forEach((control, i) => {
+      this.formConfig[i].value = control.value;
+    })
     this.formConfigHistory.count += 1;
     this.formConfigHistory.current += 1;
+    this.initDndForm();
   }
 
   ngOnInit() {
