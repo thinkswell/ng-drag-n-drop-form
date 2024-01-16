@@ -58,10 +58,12 @@ export class AppComponent {
   initDndForm() {
     this.dndForm = this.formBuilder.group({
       elements: this.formBuilder.array(
-        this.formConfig.map((element) => this.formElementsArray.push(this.formBuilder.control([element.value])))
+        this.formConfig.map(() => this.formElementsArray.push(this.formBuilder.control([])))
       ),
     });
-
+    this.formElementsArray.controls.forEach((control, i) => {
+      control.setValue(this.formConfig[i].value);
+    })
   }
 
   addNewField(data: FORM_FIELD) {
