@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FORM_CONFIG } from 'src/app/shared/models/app.model';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  @Input({ required: true }) currentIndex!: number;
+  @Input({ required: true }) formConfigs!: Array<FORM_CONFIG>;
 }

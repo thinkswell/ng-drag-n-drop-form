@@ -5,5 +5,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions class="dialog__action-btn">
-  <button mat-flat-button cdkFocusInitial color="primary" class="dialog__btn" [mat-dialog-close]="label">Save Label</button>
+  <button mat-stroked-button color="primary" class="dialog__btn" (click)="handleClose()">Cancel</button>
+  <button mat-flat-button cdkFocusInitial color="primary" class="dialog__btn" [mat-dialog-close]="label" [disabled]="!label">Save Label</button>
 </div>

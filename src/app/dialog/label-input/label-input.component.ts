@@ -13,8 +13,7 @@ export class LabelInputComponent {
     dialogRef.disableClose = true;
   }
 
-  handleSubmit() {
-    this.dialogRef.close(this.label);
+  handleClose() {
+    this.dialogRef.close();
   }
-
 }

@@ -52,21 +52,20 @@ export class AppComponent {
   }
 
   get formConfig() {
-    if (!this.formConfigHistory.formConfigs[this.formConfigHistory.current]) {
-      this.formConfigHistory.formConfigs[this.formConfigHistory.current] = {
-        createdAt: Date.now().toString(),
-        elements: [],
-      };
-    }
     return this.formConfigHistory.formConfigs[this.formConfigHistory.current].elements;
   }
 
   initDndForm() {
+    this.formConfigHistory.formConfigs = [...this.formConfigHistory.formConfigs, {
+      createdAt: Date.now().toString(),
+      elements: [],
+    }]
     this.dndForm = this.formBuilder.group({
       elements: this.formBuilder.array(
-        this.formConfig.map(() => this.formElementsArray.push(this.formBuilder.control([])))
+        this.formConfig.map((element) => this.formElementsArray.push(this.formBuilder.control([element.value])))
       ),
     });
+
   }
 
   addNewField(data: FORM_FIELD) {

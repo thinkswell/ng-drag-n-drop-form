@@ -1,5 +1,7 @@
+{{ formConfigHistory.current }}
+
 <div class="main">
-  <app-header />
+  <app-header [currentIndex]="formConfigHistory.current" [formConfigs]="formConfigHistory.formConfigs" />
   <div class="wrapper">
     <div
       cdkDropList
