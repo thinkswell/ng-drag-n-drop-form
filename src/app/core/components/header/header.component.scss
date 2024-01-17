@@ -1,23 +1,25 @@
+@import '/src/styles/variables';
+
 .header {
-    text-align: center;
-    padding: 1.5rem;
-    border-bottom: 1px solid #d3d3d3;
-    color: #333;
-    display: flex;
-    align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid $lightgray;
+  color: $darkcharcoal;
+  display: flex;
+  align-items: center;
 
-    &__form-history {
-        margin-left: auto;
+  &__form-history {
+    margin-left: auto;
 
-        .mat-mdc-form-field-subscript-wrapper {
-            display: none;
-        }
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
     }
-    .heading {
-        margin: 0;
-    }
+  }
+  .heading {
+    margin: 0;
+  }
 
-    &__action-btn {
-        margin-left: 2rem;
-    }
+  &__action-btn {
+    margin-left: 2rem;
+  }
 }

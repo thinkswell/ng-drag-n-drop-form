@@ -1,0 +1,12 @@
+.header {
+  &__form-history {
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+  &__history-item {
+    min-height: 4.8rem;
+    display: flex;
+    align-items: center;
+  }
+}

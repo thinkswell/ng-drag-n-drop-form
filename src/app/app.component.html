@@ -3,8 +3,11 @@
 {{ formConfig | json }} -->
 
 <div class="main">
-  <app-header [currentIndex]="formConfigHistory.current" [formConfigs]="formConfigHistory.formConfigs" 
-    (updateCurrentIndex)="updateCurrentFormConfig($event)" />
+  <app-header
+    [currentIndex]="formConfigHistory.current"
+    [formConfigs]="formConfigHistory.formConfigs"
+    (updateCurrentIndex)="updateCurrentFormConfig($event)"
+  />
   <div class="wrapper">
     <div
       cdkDropList

@@ -3,10 +3,14 @@
   <mat-form-field class="header__form-history">
     <mat-label>Form History</mat-label>
     <mat-select required panelClass="header__history-select" [value]="currentIndex">
-      <mat-option class="header__history-option" *ngFor="let item of formConfigs; let i = index" [value]="i">
-        <div class="header__history-item" (click)="onHistoryChange(i)">{{
-          item.createdAt | date : "hh:mm:ss, dd/MM/YY"
-        }}</div></mat-option
+      <mat-option
+        class="header__history-option"
+        *ngFor="let item of formConfigs; let i = index"
+        [value]="i"
+      >
+        <div class="header__history-item" (click)="onHistoryChange(i)">
+          {{ item.createdAt | date : DATE_FORMAT }}
+        </div></mat-option
       >
     </mat-select>
   </mat-form-field>

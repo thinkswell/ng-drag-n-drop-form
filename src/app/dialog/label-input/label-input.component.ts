@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-label-input',
   templateUrl: './label-input.component.html',
-  styleUrls: ['./label-input.component.scss']
+  styleUrls: ['./label-input.component.scss'],
 })
 export class LabelInputComponent {
   label!: string;
