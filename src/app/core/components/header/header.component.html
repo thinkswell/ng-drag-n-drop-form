@@ -2,9 +2,9 @@
   <h1 class="heading">Drag & Drop Form Builder</h1>
   <mat-form-field class="header__form-history">
     <mat-label>Form History</mat-label>
-    <mat-select required [value]="currentIndex">
-      <mat-option *ngFor="let item of formConfigs; let i = index" [value]="currentIndex">
-        <div (click)="onHistoryChange(i)">{{
+    <mat-select required panelClass="header__history-select" [value]="currentIndex">
+      <mat-option class="header__history-option" *ngFor="let item of formConfigs; let i = index" [value]="i">
+        <div class="header__history-item" (click)="onHistoryChange(i)">{{
           item.createdAt | date : "hh:mm:ss, dd/MM/YY"
         }}</div></mat-option
       >
