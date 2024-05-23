@@ -12,7 +12,7 @@ import { FORM_CONFIG_HISTORY, FORM_FIELD, FORM_FIELD_TYPES } from './shared/mode
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'centilytics-assignment';
+  title = 'Drag n Drop Form';
   dndForm!: UntypedFormGroup;
   formFields: Array<FORM_FIELD> = [
     {
